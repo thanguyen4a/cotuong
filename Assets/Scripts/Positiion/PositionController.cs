@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PositionController : MonoBehaviour ,UILib.SimpleButtonDelegate {
+public class PositionController : ObservableMonoBehaviour{
 
 	// Use this for initialization
 
@@ -12,15 +12,23 @@ public class PositionController : MonoBehaviour ,UILib.SimpleButtonDelegate {
 		this.pos_id = pos_id;
 	}
 	void Start () {
-		Debug.Log ("khoi tao");
+		//Debug.Log ("Khoi tao");
+		base.OnStart ();
 	}
 
 	// Update is called once per frame
 	void Update () {
 	
 	}
+	 void OnMouseDown()
+	{
+		Debug.Log ("click");
+		Debug.Log (this.pos_id);
+		sendMessage (PositionMessage.CLICKED_POSITION, pos_id);
+	}
 
-	public void onClicked(UnityEngine.GameObject gameobject)
+
+	/*public void onClicked(UnityEngine.GameObject gameobject)
 	{
 		Debug.Log ("click");
 		Debug.Log (this.pos_id);
@@ -29,5 +37,5 @@ public class PositionController : MonoBehaviour ,UILib.SimpleButtonDelegate {
 	public void onClickEnd(UnityEngine.GameObject gameobject)
 	{
 		Debug.Log ("clickEnd");
-	}
+	}*/
 }

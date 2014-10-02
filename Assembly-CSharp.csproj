@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{B8F4B04A-E13F-A90B-426E-68EF7E3CB1C7}</ProjectGuid>
+	<ProjectGuid>{86B4FBE2-5FC7-D89A-2B88-5E9DE5C007F2}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -49,7 +49,16 @@
      <Compile Include="Assets\Scripts\Constant\Constant.cs" />
      <Compile Include="Assets\Scripts\Positiion\Position.cs" />
      <Compile Include="Assets\Scripts\Positiion\PositionController.cs" />
+     <Compile Include="Assets\Scripts\Positiion\PositionMessage.cs" />
      <Compile Include="Assets\Scripts\System\GameController.cs" />
+     <Compile Include="Assets\Scripts\System\IGame.cs" />
+     <Compile Include="Assets\Scripts\System\State\DarkSelectedPieceState.cs" />
+     <Compile Include="Assets\Scripts\System\State\DarkSelectedPosState.cs" />
+     <Compile Include="Assets\Scripts\System\State\DarkTurnState.cs" />
+     <Compile Include="Assets\Scripts\System\State\IGameState.cs" />
+     <Compile Include="Assets\Scripts\System\State\WhiteSelectedPieceState.cs" />
+     <Compile Include="Assets\Scripts\System\State\WhiteSelectedPosState.cs" />
+     <Compile Include="Assets\Scripts\System\State\WhiteTurnState.cs" />
      <Compile Include="Assets\UILib\Debug\HUDFPS.cs" />
      <Compile Include="Assets\UILib\Debug\HUDMEM.cs" />
      <Compile Include="Assets\UILib\Debug\Message.cs" />
