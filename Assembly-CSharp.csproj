@@ -47,17 +47,17 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Constant\Constant.cs" />
+     <Compile Include="Assets\Scripts\Piece\PieceController.cs" />
      <Compile Include="Assets\Scripts\Positiion\Position.cs" />
      <Compile Include="Assets\Scripts\Positiion\PositionController.cs" />
      <Compile Include="Assets\Scripts\Positiion\PositionMessage.cs" />
      <Compile Include="Assets\Scripts\System\GameController.cs" />
+     <Compile Include="Assets\Scripts\System\GameMessage.cs" />
      <Compile Include="Assets\Scripts\System\IGame.cs" />
      <Compile Include="Assets\Scripts\System\State\DarkSelectedPieceState.cs" />
-     <Compile Include="Assets\Scripts\System\State\DarkSelectedPosState.cs" />
      <Compile Include="Assets\Scripts\System\State\DarkTurnState.cs" />
      <Compile Include="Assets\Scripts\System\State\IGameState.cs" />
      <Compile Include="Assets\Scripts\System\State\WhiteSelectedPieceState.cs" />
-     <Compile Include="Assets\Scripts\System\State\WhiteSelectedPosState.cs" />
      <Compile Include="Assets\Scripts\System\State\WhiteTurnState.cs" />
      <Compile Include="Assets\UILib\Debug\HUDFPS.cs" />
      <Compile Include="Assets\UILib\Debug\HUDMEM.cs" />

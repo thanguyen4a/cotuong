@@ -14,6 +14,8 @@ public class WhiteTurnState : IGameState {
 		{
 			if(game.checkExistingWhitePieceAtPos((int)data)){
 				game.setState(new WhiteSelectedPieceState((int)data));
+
+
 			}
 		}
 

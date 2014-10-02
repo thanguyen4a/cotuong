@@ -40,5 +40,19 @@ public static class Constant  {
 
 	}
 
+	public static Hashtable MappingPosToRealXY(int pos)
+	{
+		Hashtable hash = new Hashtable ();
+		float dv = 0.78f;
+		float init_x = -3.12f;
+		float init_y = 3.51f;
+
+
+		hash.Add("X", init_x + ((pos-1)%9)*dv);
+		hash.Add("Y",  init_y - ((pos-1)/9)*dv);
+		return hash;
+
+	}
+
 	}
 

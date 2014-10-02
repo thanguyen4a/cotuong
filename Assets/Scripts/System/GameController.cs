@@ -105,6 +105,8 @@ public class GameController : ObservableMonoBehaviour,IGame {
 			if(piece_name!="")
 			{
 				game_object = loadPiecePrefab(piece_name);
+				PieceController piece_controller = game_object.GetComponent<PieceController>();
+				piece_controller.setPosID(i);
 				float new_x =  init_x + ((i-1)%9)*dv;
 				float new_y =  init_y - ((i-1)/9)*dv;
 				game_object.transform.position = new Vector3(new_x,new_y,0);
@@ -136,22 +138,17 @@ public class GameController : ObservableMonoBehaviour,IGame {
 	{
 		Debug.Log ("switchDarkTurnState");
 	}
-	public void switchWhiteSelectedPieceState()
+	public void switchWhiteSelectedPieceState(int select_piece)
 	{
 		Debug.Log ("switchWhiteSelectedPieceState");
+		sendMessage(GameMessage.SELECT_PIECE,select_piece);
 	}
-	public void switchDarkSelectedPieceState()
+	public void switchDarkSelectedPieceState(int select_piece)
 	{
 		Debug.Log ("switchDarkSelectedPieceState");
+		sendMessage (GameMessage.SELECT_PIECE, select_piece);
 	}
-	public void switchWhiteSelectedPosState()
-	{
-		Debug.Log ("switchWhiteSelectedPosState");
-	}
-	public void switchDarkSelectedPosState()
-	{
-		Debug.Log ("switchDarkSelectedPosState");
-	}
+
 	public void setState(IGameState new_state)
 	{
 		this._state = new_state;
@@ -164,13 +161,13 @@ public class GameController : ObservableMonoBehaviour,IGame {
 
 	public bool checkExistingWhitePieceAtPos(int pos)
 	{
-		if (color [pos] == 2)return true;
+		if (color [pos-1] == 2)return true;
 		return false;
 	}
 
 	public bool checkNullOrDarkPieceAtPos(int pos)
 	{
-		if (color [pos] == 1 || color [pos] == 0)return true;
+		if (color [pos-1] == 1 || color [pos-1] == 0)return true;
 		return false;
 	}
 

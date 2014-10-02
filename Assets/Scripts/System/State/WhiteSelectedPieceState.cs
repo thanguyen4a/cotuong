@@ -13,7 +13,8 @@ public class WhiteSelectedPieceState : IGameState {
 
 	public void enter(IGame game)
 	{
-		game.switchWhiteSelectedPieceState ();
+		game.switchWhiteSelectedPieceState (selectedPiece);
+
 	}
 	public void handleInput(IGame game,string input ,object data)
 	{
@@ -22,7 +23,11 @@ public class WhiteSelectedPieceState : IGameState {
 			if(game.checkNullOrDarkPieceAtPos((int)data))
 			{
 				game.setState(new DarkTurnState());
-
+				//trang di duoc
+				Hashtable hash = new Hashtable();
+				hash.Add("piece",selectedPiece);
+				hash.Add("nextPos", (int)data);
+				game.sendMessage(GameMessage.MOVE_PIECE,hash);
 
 			}
 			else
