@@ -52,8 +52,14 @@ public class PieceController : ObservableMonoBehaviour {
 				position.x = (float)hash2["X"];
 				position.y = (float)hash2["Y"];
 				transform.position = position;
+				pos_id = (int)hash1["nextPos"];
 			}
 				
+		}
+
+		if (message == GameMessage.DESTROY_PIECE && (int)data == pos_id)
+		{
+			GameObject.Destroy(gameObject);
 		}
 
 

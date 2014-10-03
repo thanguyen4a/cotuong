@@ -20,19 +20,26 @@ public class WhiteSelectedPieceState : IGameState {
 	{
 		if (input == PositionMessage.CLICKED_POSITION) 
 		{
-			if(game.checkNullOrDarkPieceAtPos((int)data))
+			int nextpos = (int)data;
+			if(game.checkNullOrDarkPieceAtPos(nextpos))
 			{
+				if(game.checkExistingDarkPieceAtPos(nextpos))
+				{
+					game.sendMessage(GameMessage.DESTROY_PIECE,nextpos);
+					game.destroyPos(nextpos);
+				}
+
 				game.setState(new DarkTurnState());
 				//trang di duoc
 				Hashtable hash = new Hashtable();
 				hash.Add("piece",selectedPiece);
-				hash.Add("nextPos", (int)data);
+				hash.Add("nextPos", nextpos);
 				game.sendMessage(GameMessage.MOVE_PIECE,hash);
-
+				game.updatePiecePosition( selectedPiece,nextpos);
 			}
 			else
 			{
-				game.setState(new WhiteSelectedPieceState((int)data));
+				game.setState(new WhiteSelectedPieceState(nextpos));
 			}
 			
 			

@@ -22,8 +22,8 @@ public class PositionController : ObservableMonoBehaviour{
 	}
 	 void OnMouseDown()
 	{
-		Debug.Log ("click");
-		Debug.Log (this.pos_id);
+		//Debug.Log ("click");
+		//Debug.Log (this.pos_id);
 		sendMessage (PositionMessage.CLICKED_POSITION, pos_id);
 	}
 

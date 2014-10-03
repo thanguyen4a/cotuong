@@ -7,4 +7,5 @@ public static class GameMessage {
 	public static string SELECT_WHITE_PIECE = "SELECT_WHITE_PIECE";	 
 	public static string SELECT_DARK_PIECE = "SELECT_DARK_PIECE";
 	public static string SELECT_PIECE = "SELECT_PIECE";
+	public static string DESTROY_PIECE = "DESTROY_PIECE";
 }

@@ -11,7 +11,16 @@ public interface IGame  {
 
 	void setState(IGameState new_state);
 	void firedEvent(string event_name ,object data);
+
 	bool checkExistingWhitePieceAtPos(int pos);
 	bool checkNullOrDarkPieceAtPos(int pos);
+	bool checkExistingDarkPieceAtPos(int pos);
+	bool checkNullOrWhitePieceAtPos(int pos);
+
+	void destroyPos(int pos);
+	
+
+	void updatePiecePosition(int oldPos , int newPos);
+
 	void sendMessage(string message,object data);
 }

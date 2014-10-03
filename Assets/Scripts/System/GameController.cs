@@ -119,14 +119,16 @@ public class GameController : ObservableMonoBehaviour,IGame {
 	// Use this for initialization
 	void Start () {
 		base.OnStart ();
+		setState (new WhiteTurnState ());
 		board = GameObject.FindGameObjectWithTag("board");
 		innitPos ();
 		innitPiece ();
-		setState (new WhiteTurnState ());
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		_state.update(this,Time.deltaTime);
 	
 	}
 	public void switchWhiteTurnState()
@@ -165,12 +167,38 @@ public class GameController : ObservableMonoBehaviour,IGame {
 		return false;
 	}
 
+	public bool checkExistingDarkPieceAtPos(int pos)
+	{
+		if (color [pos-1] == 1)return true;
+		return false;
+	}
+
 	public bool checkNullOrDarkPieceAtPos(int pos)
 	{
 		if (color [pos-1] == 1 || color [pos-1] == 0)return true;
 		return false;
 	}
 
+	public bool checkNullOrWhitePieceAtPos(int pos)
+	{
+		if (color [pos-1] == 2 || color [pos-1] == 0)return true;
+		return false;
+	}
+
+	public void updatePiecePosition(int oldPos , int newPos)
+	{
+		oldPos--;newPos--;
+		color[newPos] = color[oldPos];
+		piece[newPos] = piece[oldPos];
+		color[oldPos] = 0;
+		piece[oldPos] = 0;
+	}
+
+	public void destroyPos(int pos)
+	{
+		pos--;
+		color[pos] = piece[pos] = 0;
+	}
 
 	public override void updateMessage(string message,object data, ObservableObject sender){
 		firedEvent(message,data);
