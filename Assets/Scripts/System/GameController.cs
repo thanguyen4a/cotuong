@@ -189,6 +189,21 @@ public class GameController : ObservableMonoBehaviour,IGame {
 			return Ma.MaWhiteCanMove(oldPos, nextPos, this.color, this.piece);
 	    }
 
+		if (piece [oldPos] == 3) 
+		{
+			return Tuong.TuongWhiteCanMove(oldPos, nextPos, this.color, this.piece);
+		}
+
+		if (piece [oldPos] == 2) 
+		{
+			return Si.SiWhiteCanMove(oldPos, nextPos, this.color, this.piece);
+		}
+
+		if (piece [oldPos] == 1) 
+		{
+			return Tot.TotWhiteCanMove(oldPos, nextPos, this.color, this.piece);
+		}
+		
 		if (color[nextPos] == 1 || color [nextPos] == 0)
 			return true;
 		return false;
@@ -211,6 +226,21 @@ public class GameController : ObservableMonoBehaviour,IGame {
 		if (piece [oldPos] == 4) 
 		{
 			return Ma.MaDarkCanMove(oldPos, nextPos, this.color, this.piece);
+		}
+
+		if (piece [oldPos] == 3) 
+		{
+			return Tuong.TuongDarkCanMove(oldPos, nextPos, this.color, this.piece);
+		}
+
+		if (piece [oldPos] == 2) 
+		{
+			return Si.SiDarkCanMove(oldPos, nextPos, this.color, this.piece);
+		}
+
+		if (piece [oldPos] == 1) 
+		{
+			return Tot.TotDarkCanMove(oldPos, nextPos, this.color, this.piece);
 		}
 
 		if (color[nextPos] == 2 || color [nextPos] == 0)
