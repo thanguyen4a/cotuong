@@ -13,9 +13,9 @@ public interface IGame  {
 	void firedEvent(string event_name ,object data);
 
 	bool checkExistingWhitePieceAtPos(int pos);
-	bool checkNullOrDarkPieceAtPos(int pos);
+	bool checkWhitePieceCanMoveToPos(int oldPos , int nextPos);
 	bool checkExistingDarkPieceAtPos(int pos);
-	bool checkNullOrWhitePieceAtPos(int pos);
+	bool checkDarkPieceCanMoveToPos(int oldPos , int nextPos);
 
 	void destroyPos(int pos);
 	

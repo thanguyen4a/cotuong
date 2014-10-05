@@ -75,13 +75,13 @@ public class GameController : ObservableMonoBehaviour,IGame {
 		float init_x = -3.12f;
 		float init_y = 3.51f;
 		int i;
-		for (i = 1; i<=90; i++) 
+		for (i = 0; i<90; i++) 
 		{
 			game_object = loadPosPrefab();
 			PositionController pos_controller = game_object.GetComponent<PositionController>();
 			pos_controller.setPosID(i);
-			float new_x =  init_x + ((i-1)%9)*dv;
-			float new_y =  init_y - ((i-1)/9)*dv;
+			float new_x =  init_x + ((i)%9)*dv;
+			float new_y =  init_y - ((i)/9)*dv;
 			game_object.transform.position = new Vector3(new_x,new_y,0);
 			game_object.transform.parent = board.transform;
 
@@ -98,17 +98,17 @@ public class GameController : ObservableMonoBehaviour,IGame {
 
 		int i;
 		string piece_name;
-		for (i = 1; i<=90; i++) 
+		for (i = 0; i<90; i++) 
 		{
-			piece_name = Constant.MappingIntToPieceName(piece[i-1],color[i-1]);
+			piece_name = Constant.MappingIntToPieceName(piece[i],color[i]);
 			Debug.Log ("piece_name ="+piece_name);
 			if(piece_name!="")
 			{
 				game_object = loadPiecePrefab(piece_name);
 				PieceController piece_controller = game_object.GetComponent<PieceController>();
 				piece_controller.setPosID(i);
-				float new_x =  init_x + ((i-1)%9)*dv;
-				float new_y =  init_y - ((i-1)/9)*dv;
+				float new_x =  init_x + ((i)%9)*dv;
+				float new_y =  init_y - ((i)/9)*dv;
 				game_object.transform.position = new Vector3(new_x,new_y,0);
 				game_object.transform.parent = board.transform;
 			}
@@ -163,31 +163,66 @@ public class GameController : ObservableMonoBehaviour,IGame {
 
 	public bool checkExistingWhitePieceAtPos(int pos)
 	{
-		if (color [pos-1] == 2)return true;
+		if (color [pos] == 2)return true;
 		return false;
 	}
 
 	public bool checkExistingDarkPieceAtPos(int pos)
 	{
-		if (color [pos-1] == 1)return true;
+		if (color [pos] == 1)return true;
 		return false;
 	}
 
-	public bool checkNullOrDarkPieceAtPos(int pos)
+	public bool checkWhitePieceCanMoveToPos(int oldPos , int nextPos)
 	{
-		if (color [pos-1] == 1 || color [pos-1] == 0)return true;
+		if (piece[oldPos] == 6) {				
+			return Xe.XeWhiteCanMove (oldPos, nextPos, this.color, this.piece);
+		}
+
+		if (piece [oldPos] == 5) 
+		{
+			return Phao.PhaoWhiteCanMove(oldPos, nextPos, this.color, this.piece);
+		}
+
+		if (piece [oldPos] == 4) 
+		{
+			return Ma.MaWhiteCanMove(oldPos, nextPos, this.color, this.piece);
+	    }
+
+		if (color[nextPos] == 1 || color [nextPos] == 0)
+			return true;
 		return false;
+
+
+
 	}
 
-	public bool checkNullOrWhitePieceAtPos(int pos)
+	public bool checkDarkPieceCanMoveToPos(int oldPos , int nextPos)
 	{
-		if (color [pos-1] == 2 || color [pos-1] == 0)return true;
+		if (piece[oldPos] == 6) {				
+			return Xe.XeDarkCanMove (oldPos, nextPos, this.color, this.piece);
+		}
+
+		if (piece [oldPos] == 5) 
+		{
+			return Phao.PhaoDarkCanMove(oldPos, nextPos, this.color, this.piece);
+		}
+
+		if (piece [oldPos] == 4) 
+		{
+			return Ma.MaDarkCanMove(oldPos, nextPos, this.color, this.piece);
+		}
+
+		if (color[nextPos] == 2 || color [nextPos] == 0)
+			return true;
 		return false;
+		
+
 	}
 
 	public void updatePiecePosition(int oldPos , int newPos)
 	{
-		oldPos--;newPos--;
+
 		color[newPos] = color[oldPos];
 		piece[newPos] = piece[oldPos];
 		color[oldPos] = 0;
@@ -196,7 +231,7 @@ public class GameController : ObservableMonoBehaviour,IGame {
 
 	public void destroyPos(int pos)
 	{
-		pos--;
+
 		color[pos] = piece[pos] = 0;
 	}
 

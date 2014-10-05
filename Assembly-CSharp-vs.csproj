@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Constant\Constant.cs" />
+     <Compile Include="Assets\Scripts\Piece\Ma.cs" />
+     <Compile Include="Assets\Scripts\Piece\Phao.cs" />
      <Compile Include="Assets\Scripts\Piece\PieceController.cs" />
+     <Compile Include="Assets\Scripts\Piece\Xe.cs" />
      <Compile Include="Assets\Scripts\Positiion\Position.cs" />
      <Compile Include="Assets\Scripts\Positiion\PositionController.cs" />
      <Compile Include="Assets\Scripts\Positiion\PositionMessage.cs" />

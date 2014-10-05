@@ -46,12 +46,16 @@ public class PieceController : ObservableMonoBehaviour {
 			Hashtable hash1 = (Hashtable)data;
 			if((int)hash1["piece"] == pos_id)
 			{
+				//cap nhat toa do thuc te ci tri can toi
+				Hashtable hash2 = Constant.MappingPosToRealXY((int)hash1["nextPos"]);
 				Vector3 position = new Vector3();
 				position = transform.position;
-				Hashtable hash2 = Constant.MappingPosToRealXY((int)hash1["nextPos"]);
+
+				//cap nhat vij tri tren ban co
 				position.x = (float)hash2["X"];
 				position.y = (float)hash2["Y"];
 				transform.position = position;
+				//cap nhat pos_id
 				pos_id = (int)hash1["nextPos"];
 			}
 				

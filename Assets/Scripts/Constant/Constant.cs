@@ -48,8 +48,8 @@ public static class Constant  {
 		float init_y = 3.51f;
 
 
-		hash.Add("X", init_x + ((pos-1)%9)*dv);
-		hash.Add("Y",  init_y - ((pos-1)/9)*dv);
+		hash.Add("X", init_x + ((pos)%9)*dv);
+		hash.Add("Y",  init_y - ((pos)/9)*dv);
 		return hash;
 
 	}

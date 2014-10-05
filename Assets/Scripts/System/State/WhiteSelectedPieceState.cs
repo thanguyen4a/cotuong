@@ -21,7 +21,7 @@ public class WhiteSelectedPieceState : IGameState {
 		if (input == PositionMessage.CLICKED_POSITION) 
 		{
 			int nextpos = (int)data;
-			if(game.checkNullOrDarkPieceAtPos(nextpos))
+			if(game.checkWhitePieceCanMoveToPos(selectedPiece,nextpos))
 			{
 				if(game.checkExistingDarkPieceAtPos(nextpos))
 				{
@@ -37,10 +37,11 @@ public class WhiteSelectedPieceState : IGameState {
 				game.sendMessage(GameMessage.MOVE_PIECE,hash);
 				game.updatePiecePosition( selectedPiece,nextpos);
 			}
-			else
+			else if(game.checkExistingWhitePieceAtPos(nextpos))
 			{
 				game.setState(new WhiteSelectedPieceState(nextpos));
 			}
+
 			
 			
 		}
