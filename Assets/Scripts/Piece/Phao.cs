@@ -27,7 +27,7 @@ public static class Phao  {
 						if(piece[i]!=0)return Xe.XeWhiteCanMove(i,nextPos ,color ,piece);
 					}
 
-					return true;
+					return false;
 				}
 				
 				if(oldPos > nextPos)
@@ -38,7 +38,7 @@ public static class Phao  {
 						if(piece[i]!=0)return Xe.XeWhiteCanMove(i,nextPos ,color ,piece);
 					}
 
-					return true;
+					return false;
 				}
 			}
 			///hang ngang
@@ -54,7 +54,7 @@ public static class Phao  {
 						if(piece[i]!=0)return Xe.XeWhiteCanMove(i,nextPos ,color ,piece);
 					}
 
-					return true;
+					return false;
 				}
 				
 				if(oldPos > nextPos)
@@ -65,7 +65,7 @@ public static class Phao  {
 						if(piece[i]!=0)return Xe.XeWhiteCanMove(i,nextPos ,color ,piece);
 					}
 
-					return true;
+					return false;
 				}
 			}
 
@@ -98,7 +98,7 @@ public static class Phao  {
 						if(piece[i]!=0)return Xe.XeDarkCanMove(i,nextPos ,color ,piece);
 					}
 					
-					return true;
+					return false;
 				}
 				
 				if(oldPos > nextPos)
@@ -109,7 +109,7 @@ public static class Phao  {
 						if(piece[i]!=0)return Xe.XeDarkCanMove(i,nextPos ,color ,piece);
 					}
 					
-					return true;
+					return false;
 				}
 			}
 			///hang ngang
@@ -125,7 +125,7 @@ public static class Phao  {
 						if(piece[i]!=0)return Xe.XeDarkCanMove(i,nextPos ,color ,piece);
 					}
 					
-					return true;
+					return false;
 				}
 				
 				if(oldPos > nextPos)
@@ -136,7 +136,7 @@ public static class Phao  {
 						if(piece[i]!=0)return Xe.XeDarkCanMove(i,nextPos ,color ,piece);
 					}
 					
-					return true;
+					return false;
 				}
 			}
 			
