@@ -175,6 +175,10 @@ public class GameController : ObservableMonoBehaviour,IGame {
 
 	public bool checkWhitePieceCanMoveToPos(int oldPos , int nextPos)
 	{
+		if (piece[oldPos] == 7) {				
+			return Vua.VuaWhiteCanMove (oldPos, nextPos, this.color, this.piece);
+		}
+
 		if (piece[oldPos] == 6) {				
 			return Xe.XeWhiteCanMove (oldPos, nextPos, this.color, this.piece);
 		}
@@ -214,6 +218,10 @@ public class GameController : ObservableMonoBehaviour,IGame {
 
 	public bool checkDarkPieceCanMoveToPos(int oldPos , int nextPos)
 	{
+		if (piece[oldPos] == 7) {				
+			return Vua.VuaDarkCanMove (oldPos, nextPos, this.color, this.piece);
+		}
+
 		if (piece[oldPos] == 6) {				
 			return Xe.XeDarkCanMove (oldPos, nextPos, this.color, this.piece);
 		}
