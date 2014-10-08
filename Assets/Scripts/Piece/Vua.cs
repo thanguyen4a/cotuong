@@ -7,6 +7,9 @@ public static class Vua  {
 	{
 		if (oldPos == nextPos)
 			return false;
+
+		if (color [nextPos] == 2)
+			return false;
 		
 		int x = oldPos % 9;
 		int y = oldPos / 9;
@@ -33,6 +36,9 @@ public static class Vua  {
 	public static bool VuaDarkCanMove(int oldPos , int nextPos ,int[] color ,int[] piece)
 	{
 		if (oldPos == nextPos)
+			return false;
+
+		if (color [nextPos] == 1)
 			return false;
 		
 		int x = oldPos % 9;

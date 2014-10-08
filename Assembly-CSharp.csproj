@@ -46,6 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Button\BackButtonScript.cs" />
+     <Compile Include="Assets\Scripts\Button\InfoButtonScript.cs" />
+     <Compile Include="Assets\Scripts\Button\PlayButtonScript.cs" />
+     <Compile Include="Assets\Scripts\Button\QuitButtonScript.cs" />
      <Compile Include="Assets\Scripts\Constant\Constant.cs" />
      <Compile Include="Assets\Scripts\Piece\Ma.cs" />
      <Compile Include="Assets\Scripts\Piece\Phao.cs" />
