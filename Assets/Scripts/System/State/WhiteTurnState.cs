@@ -7,6 +7,7 @@ public class WhiteTurnState : IGameState {
 	public void enter(IGame game)
 	{
 		game.switchWhiteTurnState ();
+
 	}
 	public void handleInput(IGame game,string input ,object data)
 	{

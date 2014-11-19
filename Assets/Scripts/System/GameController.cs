@@ -51,7 +51,8 @@ public class GameController : ObservableMonoBehaviour,IGame {
 
 	private IGameState _state;
 
-
+	public AudioSource audio_source;
+	public AudioClip[] audioClips;
 
 
 
@@ -106,7 +107,7 @@ public class GameController : ObservableMonoBehaviour,IGame {
 			{
 				game_object = loadPiecePrefab(piece_name);
 				PieceController piece_controller = game_object.GetComponent<PieceController>();
-				piece_controller.setPosID(i);
+				piece_controller.setInfo(i , piece[i],color[i]);
 				float new_x =  init_x + ((i)%9)*dv;
 				float new_y =  init_y - ((i)/9)*dv;
 				game_object.transform.position = new Vector3(new_x,new_y,0);
@@ -123,6 +124,8 @@ public class GameController : ObservableMonoBehaviour,IGame {
 		board = GameObject.FindGameObjectWithTag("board");
 		innitPos ();
 		innitPiece ();
+		audio_source = gameObject.GetComponent<AudioSource>();
+		this.setAudioClip (GameAudioMapping.BG_MUSIC, -1f, 0f,true);
 
 	}
 	
@@ -134,11 +137,19 @@ public class GameController : ObservableMonoBehaviour,IGame {
 	public void switchWhiteTurnState()
 	{
 		Debug.Log ("switchWhiteTurnState");
+		if (WhiteCapture () == true)
+		{
+			sendMessage(GameMessage.VUA_WHITE_CAPTURE ,null);
+		}
 
 	}
 	public void switchDarkTurnState()
 	{
 		Debug.Log ("switchDarkTurnState");
+		if (DarkCapture () == true)
+		{
+			sendMessage(GameMessage.VUA_DARK_CAPTURE ,null);
+		}
 	}
 	public void switchWhiteSelectedPieceState(int select_piece)
 	{
@@ -272,6 +283,86 @@ public class GameController : ObservableMonoBehaviour,IGame {
 
 		color[pos] = piece[pos] = 0;
 	}
+
+
+	private bool DarkCapture()
+	{
+		int i;
+
+		int vuaDarkPosId = -1 ;
+		for (i = 0; i <= 26; i ++) 
+		{
+			if(piece[i] == 7 && color[i] == 1)
+			{
+				vuaDarkPosId = i;break;
+			}
+		}
+
+		for (i = 0; i< 90; i++)
+		{
+			if(color[i] == 2)
+			{
+				if(checkWhitePieceCanMoveToPos(i,vuaDarkPosId) == true)break;
+			}				
+		}
+
+		if (i == 90) 
+		{
+		  return false;		
+		}
+		else 
+		{
+		  return true;
+	    }
+	}
+
+	private bool WhiteCapture()
+	{
+		int i;
+		
+		int vuaWhitePosId = -1 ;
+		for (i = 65; i < 90; i ++) 
+		{
+			if(piece[i] == 7 && color[i] == 2)
+			{
+				vuaWhitePosId = i;break;
+			}
+		}
+		
+		for (i = 0; i< 90; i++)
+		{
+			if(color[i] == 1)
+			{
+				if(checkDarkPieceCanMoveToPos(i,vuaWhitePosId) == true)break;
+			}				
+		}
+		
+		if (i == 90) 
+		{
+			return false;		
+		}
+		else 
+		{
+			return true;
+		}
+	}
+
+
+
+	public void setAudioClip(int clip_id , float round_time , float delay_time,bool isLoop)
+	{
+		if(audio_source.isPlaying)
+			audio_source.Stop();
+		audio_source.clip = audioClips[clip_id];
+		if(round_time > 0f)
+		{
+			audio_source.SetScheduledEndTime(delay_time + round_time );
+		}
+		audio_source.PlayDelayed(delay_time);
+		audio_source.loop = isLoop;
+	}
+
+
 
 	public override void updateMessage(string message,object data, ObservableObject sender){
 		firedEvent(message,data);

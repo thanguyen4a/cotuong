@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Constant\Constant.cs" />
      <Compile Include="Assets\Scripts\Piece\Ma.cs" />
      <Compile Include="Assets\Scripts\Piece\Phao.cs" />
+     <Compile Include="Assets\Scripts\Piece\PieceAudioMapping.cs" />
      <Compile Include="Assets\Scripts\Piece\PieceController.cs" />
      <Compile Include="Assets\Scripts\Piece\Si.cs" />
      <Compile Include="Assets\Scripts\Piece\Tot.cs" />
@@ -62,6 +63,9 @@
      <Compile Include="Assets\Scripts\Piece\Xe.cs" />
      <Compile Include="Assets\Scripts\Positiion\PositionController.cs" />
      <Compile Include="Assets\Scripts\Positiion\PositionMessage.cs" />
+     <Compile Include="Assets\Scripts\SubRadio\SubRadioAudioMapping.cs" />
+     <Compile Include="Assets\Scripts\SubRadio\SubRadioController.cs" />
+     <Compile Include="Assets\Scripts\System\GameAudioMapping.cs" />
      <Compile Include="Assets\Scripts\System\GameController.cs" />
      <Compile Include="Assets\Scripts\System\GameMessage.cs" />
      <Compile Include="Assets\Scripts\System\IGame.cs" />

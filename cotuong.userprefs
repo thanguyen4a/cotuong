@@ -1,32 +1,21 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\System\GameController.cs">
     <Files>
-      <File FileName="Assets\Scripts\System\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\System\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\System\GameMessage.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SubRadio\SubRadioAudioMapping.cs" Line="6" Column="2" />
+      <File FileName="Assets\Scripts\System\GameController.cs" Line="239" Column="3" />
       <File FileName="Assets\Scripts\System\IGame.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\System\State\IGameState.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\System\State\WhiteTurnState.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\System\State\WhiteSelectedPieceState.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\System\GameMessage.cs" Line="13" Column="2" />
+      <File FileName="Assets\Scripts\System\State\DarkSelectedPieceState.cs" Line="40" Column="51" />
+      <File FileName="Assets\Scripts\System\State\WhiteTurnState.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\System\GameAudioMapping.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\System\State\DarkTurnState.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\System\State\DarkSelectedPieceState.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Positiion\PositionController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Positiion\PositionMessage.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Piece\Ma.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Piece\Phao.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Piece\PieceController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Piece\Si.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Piece\Tot.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Piece\Tuong.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Piece\Vua.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Piece\Xe.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Constant\Constant.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Button\BackButtonScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Button\HelpButtonScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Button\InfoButtonScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Button\PlayButtonScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Button\QuitButtonScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Piece\Si.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Piece\PieceAudioMapping.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SubRadio\SubRadioController.cs" Line="27" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -21,20 +21,25 @@ public class DarkSelectedPieceState : IGameState {
 			int nextpos = (int)data;
 			if(game.checkDarkPieceCanMoveToPos(selectedPiece,nextpos))
 			{
+				Hashtable hash = new Hashtable();
 				if(game.checkExistingWhitePieceAtPos(nextpos))
 				{
 					game.sendMessage(GameMessage.DESTROY_PIECE,nextpos);
 					game.destroyPos(nextpos);
+					hash.Add("eat", true);
 				}
+				else
+					hash.Add("eat",false);
 
 
-				game.setState(new WhiteTurnState());
+
 				//den di duoc
-				Hashtable hash = new Hashtable();
+
 				hash.Add("piece",selectedPiece);
 				hash.Add("nextPos", nextpos);
 				game.sendMessage(GameMessage.MOVE_PIECE,hash);
 				game.updatePiecePosition( selectedPiece,nextpos);
+				game.setState(new WhiteTurnState());
 
 
 				

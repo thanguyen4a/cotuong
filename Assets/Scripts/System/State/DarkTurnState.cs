@@ -6,6 +6,7 @@ public class DarkTurnState :IGameState {
 	public void enter(IGame game)
 	{
 		game.switchDarkTurnState ();
+
 	}
 	public void handleInput(IGame game,string input ,object data)
 	{

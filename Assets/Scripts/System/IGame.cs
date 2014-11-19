@@ -18,7 +18,8 @@ public interface IGame  {
 	bool checkDarkPieceCanMoveToPos(int oldPos , int nextPos);
 
 	void destroyPos(int pos);
-	
+	void setAudioClip(int clip_id , float round_time , float delay_time ,bool isLoop);
+
 
 	void updatePiecePosition(int oldPos , int newPos);
 
